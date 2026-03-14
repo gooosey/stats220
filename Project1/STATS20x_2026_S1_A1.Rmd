@@ -1,5 +1,6 @@
 ---
 title: "Let me sleep!"
+subtitle: "Duck having a nap"
 author: "Hanlin Su, hsu263"
 output: html_document
 ---
@@ -48,7 +49,7 @@ I have added some styles for the html page. When I first open the page it just l
 
 ## Learning reflection
 
-One really important idea that t've learnt is markdown. This is my first time actually properly trying/applying it in a markdown file. I used to always just have my markdown files completely unorganized what I mean by unorganized is that there was only one heading and rest were just paragraphs.
+One really important idea that I've learnt is markdown. This is my first time actually properly trying/applying it in a markdown file. I used to always just have my markdown files completely unorganized what I mean by unorganized is that there was only one heading and rest were just paragraphs. I also learnt that you could add animations to gifs/images using R as well I thought you had to use some type of software that enables gif creation. 
 
 The next thing im curious about is if we are going to learn about databases.
 
