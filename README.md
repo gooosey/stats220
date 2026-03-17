@@ -22,6 +22,9 @@ This is my repo for **STATS 220**.
   <li>Hitting the gym!</li>
 </ul>
 
+## Useful links
+- [Bread Cutting App](https://stonet2000.github.io/Cut-Bread/)
+- [Pomodoro Timer](https://pomofocus.io)
 
 A meme that captures how I currently feel about my university studies is <br>
 ![A princess falling asleep](https://media.tenor.com/rJixcDrJsDwAAAAM/sleep-tired.gif)
