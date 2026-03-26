@@ -1,0 +1,39 @@
+---
+title: "Project 2"
+author: "Hanlin Su hsu263" 
+subtitle: "STATS 220 Semester One, 2026"
+output: html_document
+output:
+  html_document:
+    code_folding: hide
+---
+
+## Introduction
+The focus of this data collection is YouTube watching habits. Specifically, I collected data on the category of videos watched, whether the video was enjoyed, the rating given, the duration of the video, and whether the viewer watched the video in full. These observations were recorded multiple times to better understand patterns what type of content I watched.
+
+The guideline I chose was "Guideline 2: Only ask for data you actually need" I wouldn't want to ask unnecessary questions that isn't related to what my habits are.
+
+From this data collection we can deduce what type of person we are from categories and ratings. For example if the votes were dominated by the category "Gaming" and the average rating was above average then we can learn that this person might love playing video games or is interesting in gaming content.
+
+<https://forms.gle/8hQ9A5YE17tigfQL7>
+
+Form design and data collection for this project were completed by me.
+
+## Dynamic report
+
+<https://gooosey.github.io/stats220/>
+
+## Creativity
+When creating this form, I took a step back and thought, hmm, what themes are good that tell the user what this form is about and nothing that isn't related. I created some regex restrictions for some of my forms that needed it, like one of my questions was what was the duration of the video. I had to think that videos CANNOT be negative and it has to be a number, so I created a restriction where they have to enter a number greater than 0. For my page, I changed the background to be light blue because I didn't like it being too bright.
+
+## Learning reflection
+
+## Appendix
+
+```{r file='exploration.R', eval=FALSE, echo=TRUE}
+
+```
+
+```{r file='dynamic_report.Rmd', eval=FALSE, echo=TRUE}
+
+```
