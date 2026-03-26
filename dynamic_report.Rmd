@@ -1,0 +1,68 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+suppressPackageStartupMessages(library(tidyverse))
+source("exploration.R")
+```
+
+```{css}
+body {
+  font-family: Arial;
+}
+h2 {
+  color: Black;
+}
+```
+
+```{r}
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTi4w0Il1rmXgdfBpzRxsB6LBiA3gY0HMHg-0JHRQC9Uw7ZCkXe_Kr7KEuT-1GKAQ-NQJxsw2V8CiTn/pub?gid=1435256090&single=true&output=csv")
+
+# Renaming variables
+latest_data <- logged_data %>%
+  rename(
+    category = 2,
+    enjoy = 3, 
+    rating = 4, 
+    watch_time = 5,
+    full_video = 6
+  )
+```
+
+## YouTube Viewing Habits Analysis
+
+This report explores YouTube viewing behavior, which focuses on categories and ratings. The aim of this report is to understand how users engage with different type of content/what type of videos they watch.
+```{r}
+latest_data <- 
+# Summary values
+max_watch <- max(latest_data$watch_time)
+mean_rate <- mean(latest_data$rating)
+
+```
+::: dynamic-comment
+The max watch time is `r max_watch` and the mean rating for these videos combined are `r mean_rate`
+:::
+
+```{r}
+
+ggplot(data = latest_data) + 
+  geom_bar(aes(x = category, fill = category)) +
+  labs(
+    title = "Video Categories by Watching Mode",
+    subtitle = "Displays the number of videos in each category"
+  ) +
+  theme_minimal()
+
+```
+```{r}
+ggplot(data = latest_data) +
+  geom_bar(aes(x=rating),
+           fill = "yellow") +
+  labs(title="Distrubution of video ratings",
+       subtitle = "Shows how frequently each rating score occurs") +
+  theme_minimal()
+```
+
