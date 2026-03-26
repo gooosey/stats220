@@ -35,7 +35,7 @@ latest_data <- logged_data %>%
 
 This report explores YouTube viewing behavior, which focuses on categories and ratings. The aim of this report is to understand how users engage with different type of content/what type of videos they watch.
 ```{r}
-latest_data <- 
+
 # Summary values
 max_watch <- max(latest_data$watch_time)
 mean_rate <- mean(latest_data$rating)
