@@ -2,7 +2,6 @@
 title: "Project 2"
 author: "Hanlin Su hsu263" 
 subtitle: "STATS 220 Semester One, 2026"
-output: html_document
 output:
   html_document:
     code_folding: hide
@@ -11,9 +10,9 @@ output:
 ## Introduction
 The focus of this data collection is YouTube watching habits. Specifically, I collected data on the category of videos watched, whether the video was enjoyed, the rating given, the duration of the video, and whether the viewer watched the video in full. These observations were recorded multiple times to better understand patterns and the type of content I watched.
 
-The guideline I chose was “Guideline 2: Only ask for data you actually need.” I wouldn’t want to ask unnecessary questions that aren’t related to my habits.
+The guideline I chose was “Guideline 2: Only ask for data you actually need.” I wouldn’t want to ask unnecessary questions that aren’t related to my habits. Also, from this guideline, I have considered the strengths/weaknesses of my questions, since all my questions were closed questions, I had chosen appropriate formats such as numeric, dropdown, and ratings. The reason why I chose these is that they produced more structured data/consistent data, which made it much easier to analyse in R.
 
-From this data collection, we can deduce what type of person we are from categories and ratings. For example, if the votes were dominated by the category “Gaming” and the average rating was above average, then we can learn that this person might love playing video games or is interested in gaming content.
+From this data collection, we can deduce what type of person someone is based on categories and ratings. For example, if the votes are dominated by the category “Gaming” and the average rating is above average, we can infer that this person likely loves playing video games or is interested in gaming content.
 
 <https://forms.gle/8hQ9A5YE17tigfQL7>
 
@@ -32,6 +31,7 @@ One thing I have learnt from module 2 is how to properly create forms that follo
 The next step I want to learn is how I would put my forms online that will display real-time data.
 
 I didn’t work in a group for this project, but I did discuss my ideas and share my feedback in my study group. This helped me polish my forms and data collection.
+
 ## Appendix
 
 ```{r file='exploration.R', eval=FALSE, echo=TRUE}
