@@ -27,6 +27,12 @@ Form design and data collection for this project were completed by me.
 When creating this form, I took a step back and thought, hmm, what themes are good that tell the user what this form is about and nothing that isn't related. I created some regex restrictions for some of my forms that needed it, like one of my questions was what was the duration of the video. I had to think that videos CANNOT be negative and it has to be a number, so I created a restriction where they have to enter a number greater than 0. For my page, I changed the background to be light blue because I didn't like it being too bright.
 
 ## Learning reflection
+One thing I have learnt from module 2 is about how to create properly create forms which follows key principals of data collection. When I started doing forms before learning module 2, I had asked redundant questions in the form that wasn't appropiate for data collection.
+
+Next step I want to learn is how I would put my forms online that will display real time data.
+
+I didn't work in a group for this project, but if I have dscussed my ideas and shared my feedback in my study group. Which helped me polish my forms and data collection. 
+
 
 ## Appendix
 
