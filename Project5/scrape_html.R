@@ -21,14 +21,14 @@ scrape_search_results <- function(page_path) {
     
     # Ministers
     minister <- node %>%
-      html_elements(".views-field-field-ministers .minister__title") %>%
+      html_elements(".views-field-field-ministers .minister__title, .views-field-field-ministers .is-archived") %>%
       html_text2() %>%
       str_trim() %>%
       paste(collapse = ";")
     
     # Portfolios
     portfolio <- node %>%
-      html_elements(".views-field-field-portfolios a") %>%
+      html_elements(".views-field-field-portfolios a, .views-field-field-portfolios .is-archived") %>%
       html_text2() %>%
       str_trim() %>%
       paste(collapse = ";")
