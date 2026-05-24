@@ -1,6 +1,6 @@
-library(tidyverse)
-library(rvest)
-library(jsonlite)
+#library(tidyverse)
+#library(rvest)
+#library(jsonlite)
 
 # Find me list of files
 listfiles <- list.files("html", full.names = TRUE)
