@@ -14,6 +14,7 @@ saveRDS(beehive, "beehive.rds")
 source("get_wikipedia_infobox.R")
 
 minister_names <- beehive %>%
+  separate_rows(ministers, sep = ";") %>%
   pull(ministers) %>% 
   unique()
 
