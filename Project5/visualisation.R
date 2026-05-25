@@ -22,30 +22,39 @@ minister_join <- beehive %>%
   left_join(minister_party, by = c("ministers" = "minister"))
 
 # Clean party names
-
 new_beehive <- minister_join %>%
-  mutate(party = case_when(
-    str_detect(party, "National") ~ "National",
-    str_detect(party, "Labour") ~ "Labour",
-    str_detect(party, "Green") ~ "Green",
-    str_detect(party, "Māori") ~ "Māori Party",
-    TRUE ~ "Unknown Party"      
-  ),
-  # Fix date 
-  year = year(dmy(date_text)),
-  yearmat = case_when(
-    year < 2010 ~ "<2010",
-    year < 2015 ~ "2010-14",
-    year < 2020 ~ "2015-19",
-    year < 2024 ~ "2020-23",
-    TRUE        ~ "2024-26"
-  ),
-  ai_mention = str_detect(title, "\\bAI\\b|artificial intelligence") |
-    str_detect(summary, "\\bAI\\b|artificial intelligence"),
-  fill_group = if_else(ai_mention, party, "No AI mention")
+  mutate(
+    title = str_remove_all(title, "[[:punct:]]"),
+    title = str_to_lower(title),
+    summary = str_remove_all(summary, "[[:punct:]]"),
+    summary = str_to_lower(summary),
+    
+    party = case_when(
+      str_detect(party, "National") ~ "National",
+      str_detect(party, "Labour") ~ "Labour",
+      str_detect(party, "Green") ~ "Green",
+      str_detect(party, "Māori") ~ "Māori Party",
+      TRUE ~ "Unknown Party"
+    ),
+    
+    year = year(dmy(date_text)),
+    
+    yearmat = case_when(
+      year < 2010 ~ "<2010",
+      year < 2015 ~ "2010-14",
+      year < 2020 ~ "2015-19",
+      year < 2024 ~ "2020-23",
+      TRUE ~ "2024-26"
+    ),
+    # This part I didn't totally "AI" because ahem regex
+    ai_mention =
+      #str_detect(title, regex("\\b(a\\.?i\\.?|artificial intelligence)\\b", ignore_case = TRUE)) |
+      #str_detect(summary, regex("\\b(a\\.?i\\.?|artificial intelligence)\\b", ignore_case = TRUE)),
+      str_detect(title, "artificial intelligence| ai ") |
+      str_detect(summary, "artificial intelligence| ai "),
+    fill_group = if_else(ai_mention, party, "No AI mention")
   ) %>%
   filter(ministers != "")
-
 # Plot me 
 beehive_plot <- new_beehive %>%
   ggplot() + 
@@ -58,7 +67,7 @@ beehive_plot <- new_beehive %>%
     "Green"         = "darkgreen",
     "Unknown Party" = "black"
   )) + labs(
-    title    = "When the Beehive talks about AI in employment releases, it's mostly National",
+    title    = "AI in employment, it's mostly National",
     subtitle = "Beehive releases for 'Employment AI'; coloured bars mention AI, grey bars don't",
     x        = "Year band",
     y        = "Number of releases",
