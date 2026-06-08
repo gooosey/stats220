@@ -1,0 +1,37 @@
+---
+title: "Project 4"
+subtitle: "STATS 220 Semester One 2026"
+author: "Hanlin Su, hsu263"
+output:
+  html_document:
+    code_folding: hide
+---
+
+## Introduction
+
+I continued the data context I started in Project 2, logging the YouTube videos I watch. Each time I finished watching a video, I filled in a Google Form recording the type of video (gaming, learning, music, fashion and beauty, etc.), how long it was, whether I watched the whole thing, whether I enjoyed it, and a rating out of five. I reused the same Google Form from Project 2 without adding new questions. I collected all the data myself. When it came to the visualization, what I chose to focus on was video_types, rating, and creating a time stamp variable because these variables seemed more appropriate to use to talk about than the other variables, as these helped me describe whether I like the videos or not.
+
+Firstly, I chose geom_bar to represent the count of video_types. This is the best option to interpret which video genres I’ve watched the most. Secondly, the next graph I used was a jitter graph. I wanted to take advantage of the time stamp, and I wanted to know which types of videos I liked to watch throughout the day. Lastly, the third plot used a stacked column graph to compare video type, since I wanted to compare both the total and its likes/dislikes at the same time.
+
+A few things I didn’t work out along the way. First, I tried a pie chart for the genre, but the slices were too similar in size to read, so I switched to a bar chart. I also tried a line plot for time of day, but with inconsistent data, the line was misleading, so I chose a jitter plot, which was a better graph to reflect my data.
+
+## Visual data story 
+
+[page link](https://gooosey.github.io/stats220//visual_data_story.html)
+
+[github link](https://github.com/gooosey/stats220/tree/project-4)
+
+So the initial creation of my plots lacked some colour, and so I used the default colour for my graphs. It looked ehhh, it didn’t really give a theme that matched my forms. However, I remembered in one of the 4B exercises we had to create our own themes I felt like I was in control being able to freely choose my colours. I used that exercise and a bit of help from my peers to help me design a theme. I designed a custom red-themed colour palette using Colour Brewer, hexcode combinations and applied it across both my ggplot theme and the CSS for the HTML page. I had to surf through the internet to find the perfect theme, and the one that caught my attention was like a candy cane them it reminded me of YouTube somehow, but the colour scheme felt nice.
+
+## Learning reflection
+
+One thing I have learnt is that ggplot is built on layers and not one thing together. When I first tried doing ggplot, I thought the plots and code were just like placing them on a static image. Once I grasped that concept, it made me think differently and consider other ways I could plot my graph. For example, we can jitter plot, then we layer it with, like, a subgraph, which may show some points that aren't really condensed.
+
+One thing I want to learn about next is whether there is a way to include information about the points, especially when you hover over them.
+
+
+## Appendix
+
+```{r file='data_visualisation.R', eval=FALSE, echo=TRUE}
+
+```

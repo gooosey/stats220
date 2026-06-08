@@ -1,6 +1,5 @@
-#library(tidyverse)
-#library(httr)
-# Goal employment + AI mentioned
+library(tidyverse)
+library(httr)
 
 beehive <- readRDS("beehive.rds")
 ministers <- readRDS("ministers.rds")
@@ -46,10 +45,7 @@ new_beehive <- minister_join %>%
       year < 2024 ~ "2020-23",
       TRUE ~ "2024-26"
     ),
-    # This part I didn't totally "AI" because ahem regex
     ai_mention =
-      #str_detect(title, regex("\\b(a\\.?i\\.?|artificial intelligence)\\b", ignore_case = TRUE)) |
-      #str_detect(summary, regex("\\b(a\\.?i\\.?|artificial intelligence)\\b", ignore_case = TRUE)),
       str_detect(title, "artificial intelligence| ai ") |
       str_detect(summary, "artificial intelligence| ai "),
     fill_group = if_else(ai_mention, party, "No AI mention")
@@ -67,9 +63,9 @@ beehive_plot <- new_beehive %>%
     "Green"         = "darkgreen",
     "Unknown Party" = "black"
   )) + labs(
-    title    = "AI in employment, it's mostly National",
+    title    = "AI in employment, currently it's mostly National",
     subtitle = "Beehive releases for 'Employment AI'; coloured bars mention AI, grey bars don't",
-    x        = "Year band",
+    x        = "Year",
     y        = "Number of releases",
   ) + 
   theme_dark()
