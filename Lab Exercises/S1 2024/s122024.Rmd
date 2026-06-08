@@ -1,0 +1,75 @@
+---
+title: "s122024"
+output: html_document
+---
+
+For Project 4, you obtained data from the Pixabay API using a query similar to the one shown
+below:
+https://pixabay.com/api/?q=cute+cats&image_type=photo&per_page=200
+Additional parameters that could be used when making a query to the Pixabay API are given
+below:
+A student changed the query to use the keywords aotearoa new zealand and to return photos
+with a horizontal orientation and color properties of green or blue
+
+https://pixabay.com/api/?q=aotearoa+new+zealand&image_type=photo&per_page=200&orientation=horizontal&color=green,blue
+
+
+Identify and describe four issues with the code, explaining why the student has not correctly
+followed the project instructions for each issue.
+Issue 1-4
+1. Hardcoded from json url
+2. depends
+3. tags is not creating a new tag its just replacing it
+4. depends
+
+
+A different student used the Pixabay API explorer from Project 3 to obtain data about the photos
+returned when searching for “New Zealand”.
+In Part B, the student used R code to create a data frame called selected_photos and then
+viewed the data frame using the glimpse() function (see the output below).
+In Part D, as part of writing their project3_report.Rmd document, the student used R code to
+produce a data frame called photo_data and then another data frame called summary_data.
+The data frame summary_data is shown below.
+The code below provides the code that produces the data frame named summary_data,
+shown directly above, but some parts of the code have been replaced with numbers e.g. {1}
+
+1-4
+read_csv
+group_by
+summarise
+view
+
+1.4 Later in their project3_report.Rmd document, the student used the data
+frames photo_data and summary_data (from Q1.3) to produce the following statements
+using markdown and inline R code:
+Statement 1: I ended up with 53 photos for my analysis.
+Statement 2: The most number of likes a photo received was 635.
+Statement 3: There were 12 photos tagged with the word mountain.
+Statement 4: The median number of views for photos tagged with the words new zealand
+was 1.1785^{4}.
+Write the R code that could have been used as part of producing each the statements above.
+
+rnow(photo_data)
+max(photo_data$likes)
+filter(str_detect(tages, "mountain)) nrow
+filter(str_detect(tags, "new zealand")) summarise(median(views)) pull()
+
+The student then created a new variable named views_per_day by dividing the total number
+of views a photo has (views) by the number of days since the photo was uploaded
+(days_since_uploaded).
+
+as.Date
+days_since_uploaded
+days
+views
+
+
+Key data manipulation 1: Tokenise the video titles into individual words
+The title column contains full sentences, so the student needed to split each title into individual words (one word per row) using unnest_tokens(). This is necessary because sentiment analysis works at the word level, not the sentence level.
+Key data manipulation 2: Join with a sentiment lexicon
+The tokenised words needed to be joined with a sentiment dictionary (such as the "bing" lexicon) using an inner join. This matches each word to its sentiment label (positive/negative), and words not found in the lexicon are automatically dropped. This is necessary to assign sentiment values to each word.
+Key data manipulation 3: Group by channelName and sentiment
+The data needed to be grouped by both channelName and sentiment so that counts could be calculated separately for each channel-sentiment combination. This is necessary to produce the four rows seen in the output (2 channels × 2 sentiments).
+Key data manipulation 4: Count/summarise the number of words per group
+After grouping, the student needed to count the number of words in each group to produce the num_words column. This gives the total number of positive/negative words used in video titles for each channel, allowing a comparison of sentiment between @australia and @purenewzealand.
+

@@ -1,0 +1,16 @@
+---
+title: "s12025txt"
+output: html_document
+---
+
+### Use a specific feature of this JSON data to describe ONE potential difficulty with creating a data
+frame with JSON data. Then describe how this difficulty was resolved by the code that was
+provided for Project 3.
+
+One potential thing that I found hard was nested data in the json, was the nested data in "src" for me. The way that I had to resolve this was choosing which size is most appropriate for my project 3 that I will be creating.
+
+### Discuss two specific challenges Anna faced when trying to automate the process of sourcing logos
+for NZ schools
+
+1. There was a problem if the logo was archieved or not.
+2. Sourcing the incorrect logos.
