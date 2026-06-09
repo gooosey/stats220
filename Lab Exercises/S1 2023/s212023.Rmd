@@ -1,0 +1,91 @@
+---
+title: "s212023"
+output: html_document
+---
+
+The function used to produce the output above was glimpse(view(), tibble(),
+                                                   output(), print(), glimpse())
+
+There are 1 numeric variable
+
+The goal of this code is to find the total unique visitors thats in the session "getting_started". 
+How this function works is by firstly filtering session_name to getting started and then selecting all the student and then find the distinct number and then get how many students there are.
+
+Making specific references to the code provided, explain how the names of the lectures were able
+to displayed in order from first (top bar) to last (bottom bar) in the visualisation from 1.4.
+By the reorder() function. From our data frame we have "lecture num" which correlates to what the lecture is. We just reorder it based on that coloumn. 
+
+Using specific examples from Project 4, discuss TWO data-related responsibilities or issues you
+needed to consider in Project 4, due to the nature of the data used in.
+1. One responsibility that we needeed to follow was from the domain website robots.txt We had to follow these guidelines as an indication of what and what we cannot access. 
+2.Another thing we had to consider was copyright or rules we had to follow aswell. For example a case where you could reproduce an article BUT you have to consider that the material is accrurate.
+
+
+Which function from {lubridate} can be used to convert the variable releaseDate to dttm?
+ymd_hms()
+
+Which function can be used to find the number of values in track_data$wrapperType?
+length()
+
+Describe two different questions you could answer that require manipulating the the data frame
+track_data.Briefly describe the data manipulations required to answer each question described in 2.3. Be
+careful to clearly explain which of your two questions the data manipulations relate to
+
+What is the mean highest featured track type
+I would do a group_by and summarise the mean foe each type of track.
+Which songs have the longest name?
+Firstly I would str_remove all puncuations then I would mutate the new clean title data into a new colum which uses nchar() to find out how many characters each title have. I then would use the arrange function to arrange it from desc order
+
+Briefly discuss if the column/variable student_email can be considered the primary key for both
+tbl_students and tbl_ed.
+
+Yes and no. For tbl_students we can say that student email is an unique key as its bounded to only unique students. ThereWe cant have tbl_ed to have a student email as our primary key since multiple of the same gmails have have different posts.
+
+
+SQL:
+SELECT done_compsi, COUNT(student_email) AS num_students
+  FROM TBL_STUDENTS
+  GROUP BY done_compsi
+  
+This code here outputs number of students who done compsci and hasnt.
+The tidyversefucntion that could reproduce this is 
+
+done_compsci %>%
+  mutate(num_students = sum(student_email)) %?%
+  group_by(tbl_students)
+  
+Briefly describe one thing Anna could learn about STATS 220 students by using an inner join for
+tbl_students and tbl_ed. Be clear in your answer why an inner join is helpful/necessary.
+
+One thing that anna could learn when we do an inner join with tblstudents and tbled is that she could see students who are very active in ed discussion. Its a helpful function as if there is a large set of data we dont want to see lots of 0's active in ed better to have it clean and simple.
+
+
+In no more than two short sentences, and with specific reference to the screenshots shown
+above, discuss whether it is appropriate or responsible to scrape personal information about
+University of Auckland staff from their public profile pages
+From the looks of it, yeah its allowed from the robots.txt screenshot it doesn't seem like there is anything that it we are not allowed to scrape. 
+
+ Briefly describe one thing Anna could learn about STATS 220 students by using a left join for
+tbl_students and tbl_ed. Be clear in your answer why a left join is helpful/necessary.
+Its helpful as we won't lose information about students as sometimes we may need necessary information about them. This is only good in some cases but in this case since it introduces NA values which may be reduandant in our data collections as we may need to remove it or do something about these values.
+
+Which HTML element is used to display the profile picture? (img, div, h1, p,
+a) a
+What HTML attribute contains the link/URL to the profile picture? (url, link,
+href, pic, src) src
+
+Identify TWO additions you would make to the code for scraping data about courses from the
+DCO website. Briefly discuss why you would make each code addition.
+
+I would add something about what tags were used in the search term. Sometimes we dont know what the course is actually about its more useful to understand ahh this is from science degree.
+I would also like to add the semster that is taught aswell. It would also be good to know when the class is starting/finishing
+
+Anna wants to use the course prescriptions (descriptions) to create "fake" course prescriptions
+for Science courses.
+Briefly discuss how both a for() loop and a while() loop could be used as part of this process.
+I guess we would start using a while loop that keeps running till we finish our "fake" course prescriptions then a for loop which loops through some prescritions pastes it in creatinf a "fake" course prescriptions
+
+Briefly discuss ONE issue you faced with completing Project 5 and describe how you resolved
+this issue. Be specific about what the issue was and what skills or understanding had to be
+applied to resolve the issue.
+One thing that I had an issue for project 5 was the data scrapping. It wouldn't scrape data that was archieved only relevant data. The way that I resolved this was adding and extra tag into my html_element funciton which scrapes both archieved data and relevant data. I did this because when I was viewing each html data it seemed like there could only be one type of data either archieved or not. 
